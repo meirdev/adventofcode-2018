@@ -38,7 +38,7 @@ def solution(input: str, key: Callable[[collections.Counter[int]], int]) -> int:
 
     id, sleep_times = max(sleep_time.items(), key=lambda i: key(i[1]))
 
-    return id * sleep_times.most_common(1)[0][0]
+    return id * max(sleep_times, key=sleep_times.get)
 
 
 def part1(input: str) -> int:
@@ -46,7 +46,7 @@ def part1(input: str) -> int:
 
 
 def part2(input: str) -> int:
-    return solution(input, lambda i: i.most_common(1)[0][1])
+    return solution(input, lambda i: i[max(i, key=i.get)])
 
 
 def main() -> None:
