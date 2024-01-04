@@ -91,10 +91,14 @@ def solution(input: str) -> None:
 
 
 def part1(input: str) -> str:
-    pass
+    solution(input)
+
+    pass  # TODO: how to check the image?
 
 
 def part2(input: str) -> int:
+    solution(input)
+
     pass
 
 
