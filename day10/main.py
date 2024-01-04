@@ -62,7 +62,7 @@ def draw_image(points: list[Point]) -> Image:
     return image
 
 
-def solution(input: str) -> None:
+def solution(input: str) -> tuple[str, int]:
     points = parse_input(input)
 
     min_velocity = min(
@@ -84,22 +84,24 @@ def solution(input: str) -> None:
 
         print(i)
 
+        # TODO: how to check the image?
+        # if (text := get_text(image)):
+        #     return text, i
+
         time.sleep(0.5)
 
         for point in points:
             point.next_position()
 
+    return "", -1
+
 
 def part1(input: str) -> str:
-    solution(input)
-
-    pass  # TODO: how to check the image?
+    return solution(input)[0]
 
 
 def part2(input: str) -> int:
-    solution(input)
-
-    pass
+    return solution(input)[1]
 
 
 def main() -> None:
