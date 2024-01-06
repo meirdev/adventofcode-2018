@@ -17,7 +17,6 @@ def solution(serial_number: int, size: int | None = None) -> str:
     max_square = float("-inf"), -1, -1, -1
 
     for i in range(size if size else 300):
-        print(i)
         for y in range(len(grid_calculated)):
             for x in range(len(grid_calculated[x]) - i):
                 grid_calculated[y][x] += grid[y][x + i]
