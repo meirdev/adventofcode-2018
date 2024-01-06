@@ -1,3 +1,4 @@
+import collections
 import copy
 
 
@@ -16,16 +17,23 @@ def solution(serial_number: int, size: int | None = None) -> str:
     max_square = float("-inf"), -1, -1, -1
 
     for i in range(size if size else 300):
+        print(i)
         for y in range(len(grid_calculated)):
             for x in range(len(grid_calculated[x]) - i):
                 grid_calculated[y][x] += grid[y][x + i]
 
-        for y in range(len(grid_calculated) - i):
-            for x in range(len(grid_calculated[y]) - i):
-                total_power = sum(grid_calculated[y + k][x] for k in range(i + 1))
+        for x in range(len(grid_calculated[0]) - i):
+            total_power = [0] + [grid_calculated[k][x] for k in range(i)]
 
-                if max_square[0] < total_power and not (size and size != i + 1):
-                    max_square = total_power, x + 1, y + 1, i + 1
+            for y in range(i - 1, len(grid_calculated) - i):
+                if y >= i:
+                    total_power.pop(0)
+                    total_power.append(grid_calculated[y + i][x])
+
+                total_power_int = sum(total_power)
+
+                if max_square[0] < total_power_int and not (size and size != i + 1):
+                    max_square = total_power_int, x + 1, y + 1, i + 1
 
     return ",".join(map(str, max_square[1 : -1 if size else len(max_square) + 1]))
 
