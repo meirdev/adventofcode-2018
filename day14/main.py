@@ -27,10 +27,7 @@ def part1(input: str) -> str:
     num = int(input)
 
     return "".join(
-        map(
-            str,
-            (recipe for n, recipe in zip(range(num + 10), get_recipes()) if num <= n),
-        )
+        str(recipe) for n, recipe in zip(range(num + 10), get_recipes()) if num <= n
     )
 
 
