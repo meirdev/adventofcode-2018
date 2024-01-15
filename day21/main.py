@@ -1,4 +1,3 @@
-import functools
 from typing import Iterator
 
 
@@ -38,7 +37,9 @@ def part2(input: str) -> int:
         if not seen:
             p = c
         else:
-            return p
+            break
+
+    return p
 
 
 def main() -> None:
