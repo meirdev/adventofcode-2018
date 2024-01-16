@@ -14,7 +14,7 @@ Position: TypeAlias = tuple[int, int]
 CaveSystem: TypeAlias = dict[Position, RegionType]
 
 
-def parse_input(input: str) -> tuple[int, tuple[int, int]]:
+def parse_input(input: str) -> tuple[int, Position]:
     match = re.search(r"depth: (\d+)", input)
     if match is None:
         raise ValueError("depth not found")
