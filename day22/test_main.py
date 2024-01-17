@@ -20,4 +20,4 @@ def test_input():
         input = file.read()
 
     assert part1(input) == 8575
-    assert part2(input) == 0
+    assert part2(input) == 999
